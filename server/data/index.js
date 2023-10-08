@@ -22977,7 +22977,7 @@ const dataUser = [
   },
 ];
 
-module.export = {
+module.exports = {
   dataAffiliateStat,
   dataOverallStat,
   dataProduct,
