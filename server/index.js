@@ -13,7 +13,17 @@ require("dotenv").config();
 const User = require("./models/User");
 const Product = require("./models/Product");
 const ProductStat = require("./models/ProductStat");
-const { dataUser, dataProduct, dataProductStat } = require("./data/index");
+const Transaction = require("./models/Transaction");
+const OverallStat = require("./models/OverallStat");
+const AffiliateStat = require("./models/AffiliateStat");
+const {
+  dataUser,
+  dataProduct,
+  dataProductStat,
+  dataTransaction,
+  dataOverallStat,
+  dataAffiliateStat,
+} = require("./data/index");
 
 const app = express();
 app.use(express.json());
@@ -38,13 +48,12 @@ mongoose
   .then(() => {
     app.listen(PORT, () => {
       console.log(`SERVER IS RUNNING ON PORT ${PORT}`);
+      // AffiliateStat.insertMany(dataAffiliateStat);
+      // OverallStat.insertMany(dataOverallStat)
       // User.insertMany(dataUser)
-      /*Product.insertMany(dataProduct)
-        .then((value) => console.log("valide: " + value))
-        .catch((e) => console.log(e));
-      ProductStat.insertMany(dataProductStat)
-        .then((value) => console.log("valide: " + value))
-        .catch((e) => console.log(e));*/
+      // Transaction.insertMany(dataTransaction);
+      // Product.insertMany(dataProduct)
+      // ProductStat.insertMany(dataProductStat)
     });
   })
   .catch((err) => console.log(err));
